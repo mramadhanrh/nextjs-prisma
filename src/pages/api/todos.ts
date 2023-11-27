@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // create todo
     const text = JSON.parse(req.body).text;
     const todo = await prisma.todo.create({
-      data: { text, completed: false },
+      data: { text, completed: false, isDraft: true },
     });
 
     res.json(todo);
